@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="sim" default="true" />
+    <arg name="gui" default="true" doc="Starts gazebo gui" />
+    <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
+
+    <arg name="name" default="tripod_rgb_rgb" />
+    <arg name="x_pos" default="0.0" />
+    <arg name="y_pos" default="0.0" />
+    <arg name="z_pos" default="0.0" />
+    <arg name="roll" default="0" />
+    <arg name="pitch" default="0" />
+    <arg name="yaw" default="0.0" />
+
+    <!-- velodyne -->
+    <!-- <arg name="gpu" default="false" /> -->
+    <!-- velodyne -->
+
+    <!-- startup simulated world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" default="worlds/empty.world" /> -->
+        <arg name="world_name" default="$(find tripod_rgb_rgb_description)/worlds/mmtbot.world" /> 
+        <arg name="paused" value="$(arg paused)" />
+        <arg name="gui" value="$(arg gui)" />
+    </include>
+
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find tripod_rgb_rgb_description)/urdf/tripod_rgb_rgb.urdf.xacro" />
+
+    <!-- Send robot states to tf -->
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <!-- velodyne -->
+        <!-- <param name="publish_frequency" type="double" value="30.0" /> -->
+        <!-- velodyne -->
+    </node>
+
+    <!-- spawn the robot -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg name) 
+        -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)
+        -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
+        -param robot_description" />
+
+    <!-- include launch to charuco -->
+    <include file="$(find tripod_rgb_rgb_bringup)/launch/charuco.launch">
+        <arg name="name" value="charuco"/>
+    </include>
+
+</launch>
