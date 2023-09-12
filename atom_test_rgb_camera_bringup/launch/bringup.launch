@@ -40,6 +40,14 @@
         -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
         -param robot_description" />
 
-    <!-- <node name="interactive_pattern" pkg="atom_worlds" type="interactive_pattern" output="screen" /> -->
+    <!-- include launch to charuco -->
+    <include file="$(find atom_test_rgb_camera_bringup)/launch/charuco.launch">
+    </include>
+
+    <!-- include launch to visualize -->
+    <include file="$(find atom_test_rgb_camera_bringup)/launch/visualize.launch">
+    </include>
+
+
 
 </launch>

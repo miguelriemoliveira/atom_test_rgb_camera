@@ -1,42 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- <arg name="sim" default="true" />
-    <arg name="gui" default="false" doc="Starts gazebo gui" />
-    <arg name="paused" default="false" doc="Starts gazebo in paused mode" /> -->
 
-    <arg name="name" default="charuco" />
-    <arg name="x_pos" default="1.0" />
-    <arg name="y_pos" default="0.0" />
-    <arg name="z_pos" default="1.0" />
-    <arg name="roll" default="1.57" />
-    <arg name="pitch" default="0" />
-    <arg name="yaw" default="-1.57" />
 
-    <!-- velodyne -->
-    <!-- <arg name="gpu" default="false" /> -->
-    <!-- velodyne -->
+    <!-- spawn the robot -->
+    <node name="interactive_pattern" pkg="atom_worlds" type="interactive_pattern" args=""/>
 
-    <!-- startup simulated world -->
-    <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" default="worlds/empty.world" />
-        <arg name="paused" value="$(arg paused)" />
-        <arg name="gui" value="$(arg gui)" />
-    </include> -->
-    
-    <group ns="$(arg name)">
-        <param name="tf_prefix" value="$(arg name)"/>
-
-        <param name="robot_description" command="$(find xacro)/xacro --inorder $(find tripod_rgb_rgb_description)/models/charuco5X5.urdf.xacro" />
-
-        <!-- Send robot states to tf -->
-        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-
-        <!-- spawn the robot -->
-        <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg name) 
-        -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)
-        -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
-        -param robot_description" />
-
-    </group>
 </launch>
