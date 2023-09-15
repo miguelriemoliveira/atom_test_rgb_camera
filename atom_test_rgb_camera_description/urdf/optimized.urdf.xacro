@@ -25,7 +25,7 @@
     </collision>
   </link>
   <joint name="camera_rgb_joint" type="fixed">
-    <origin xyz="0.0 -0.045 0.0" rpy="0.0 -0.0 0.0"/>
+    <origin xyz="0.00010158958797154281 -0.042953467785865576 -0.0015448842947527724" rpy="0.00046995312155169927 2.388714950993065e-05 0.0001895113226526851"/>
     <parent link="camera_link"/>
     <child link="camera_rgb_frame"/>
   </joint>
@@ -37,7 +37,7 @@
   </joint>
   <link name="camera_rgb_optical_frame"/>
   <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="0.0 -0.02 0.0" rpy="0.0 0.0 0.0"/>
+    <origin xyz="-0.003349810132048032 -0.017969203137631305 0.0010404538331909893" rpy="-0.0014918535772643327 -0.00039341491478172744 8.162331229562133e-05"/>
     <parent link="camera_link"/>
     <child link="camera_depth_frame"/>
   </joint>
@@ -128,14 +128,14 @@
     <visual>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://tripod_rgb_rgb_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04"/>
+        <mesh filename="package://atom_test_rgb_camera_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04"/>
       </geometry>
       <material name="grey"/>
     </visual>
     <collision name="tripod_collision">
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://tripod_rgb_rgb_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04"/>
+        <mesh filename="package://atom_test_rgb_camera_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04"/>
       </geometry>
     </collision>
   </link>

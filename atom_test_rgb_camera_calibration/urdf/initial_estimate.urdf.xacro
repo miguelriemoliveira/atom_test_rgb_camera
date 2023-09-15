@@ -13,7 +13,7 @@
     </xacro:sensor_astra>
  
     <!-- ADD charuco REMOVED FROM HERE TO BE SEEN AS A DIFFERENT OBJECT IN THE SIMULATION -->
-    <!-- <xacro:include filename="$(find tripod_rgb_rgb_description)/models/charuco5X5.urdf.xacro" /> -->
+    <!-- <xacro:include filename="$(find atom_test_rgb_camera_description)/models/charuco5X5.urdf.xacro" /> -->
 
     <material name="grey">
         <color rgba="0.7 0.7 0.7 1.0" />
@@ -26,14 +26,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://tripod_rgb_rgb_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04" />
+                <mesh filename="package://atom_test_rgb_camera_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04" />
             </geometry>
             <material name="grey" />
         </visual>
         <collision name="tripod_collision">
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://tripod_rgb_rgb_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04" />
+                <mesh filename="package://atom_test_rgb_camera_description/meshes/tripod/tripod.dae" scale="0.04 0.04 0.04" />
             </geometry>
         </collision>
         <inertial>

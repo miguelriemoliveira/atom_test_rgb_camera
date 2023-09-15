@@ -27,6 +27,9 @@
             /camera/rgb/image_raw/compressed
             /camera/rgb/camera_info
 
+            /camera/depth/image_raw
+            /camera/depth/camera_info
+
             -o $(arg bag)">
         </node>
 

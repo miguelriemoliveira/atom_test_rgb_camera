@@ -116,6 +116,38 @@ Visualization Manager:
     Namespaces: {}
     Queue Size: 10
     Value: true
+  - Class: rviz/Image
+    Enabled: true
+    Image Topic: /camera/depth/image_raw
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: depth_camera-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/Camera
+    Enabled: true
+    Image Rendering: background and overlay
+    Image Topic: /camera/depth/image_raw
+    Name: depth_camera-Camera
+    Overlay Alpha: 0.5
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+    Visibility:
+      Value: true
+    Zoom Factor: 1
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: depth_camera/frustum
+    Name: depth_camera-Frustum
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255

@@ -20,7 +20,7 @@
     <!-- startup simulated world -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <!-- <arg name="world_name" default="worlds/empty.world" /> -->
-        <arg name="world_name" default="$(find tripod_rgb_rgb_description)/worlds/mmtbot.world" /> 
+        <arg name="world_name" default="$(find atom_test_rgb_camera_description)/worlds/mmtbot.world" /> 
         <arg name="paused" value="$(arg paused)" />
         <arg name="gui" value="$(arg gui)" />
     </include>

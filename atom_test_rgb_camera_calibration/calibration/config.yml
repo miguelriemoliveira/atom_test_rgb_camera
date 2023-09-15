@@ -33,8 +33,8 @@
 description_file: "package://atom_test_rgb_camera_description/urdf/robot.xacro"
 
 # The calibration framework requires a bagfile to extract the necessary data for the calibration.
-# bag_file: "$ROS_BAGS/atom_test_rgb_camera/train1.bag" 
-bag_file: "$ROS_BAGS/atom_test_rgb_camera/train_baseline0.bag" 
+bag_file: "$ROS_BAGS/atom_test_rgb_camera/train_depth.bag" 
+# bag_file: "$ROS_BAGS/atom_test_rgb_camera/train_baseline0.bag" 
 
 # You must define a frame of reference for the optimization process.
 # It must exist in the transformation chains of all the sensors which are being calibrated.
@@ -52,6 +52,14 @@ sensors:
     topic_name: "/camera/rgb/image_raw"
     throttle: 10
     modality: rgb
+
+  depth_camera:
+    link: "camera_depth_optical_frame"
+    parent_link: "camera_link"
+    child_link: "camera_depth_frame"
+    topic_name: "/camera/depth/image_raw"
+    throttle: 10
+    modality: depth
 
 # ATOM will calibrate the extrinsic parameters of your links.
 # In this section you should discriminate the additional transformations that will be part of the calibrations.

@@ -98,6 +98,25 @@ Visualization Manager:
     Transport Hint: raw
     Unreliable: false
     Value: false
+  - Class: rviz/Image
+    Enabled: true
+    Image Topic: /camera/depth/image_raw/c000/labeled2d
+    Max Value: 1
+    Median window: 5
+    Min Value: 0
+    Name: depth_camera-Labels-Image
+    Normalize Range: true
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  - Class: rviz/MarkerArray
+    Enabled: true
+    Marker Topic: /camera/depth/image_raw/labeled3d
+    Name: depth_camera-Labels-3D
+    Namespaces: {}
+    Queue Size: 10
+    Value: true
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255
